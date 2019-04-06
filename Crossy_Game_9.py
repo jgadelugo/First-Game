@@ -1,4 +1,4 @@
- # Pygame developent 9
+ # Pygame development 9
 # Add true end game conditions
 # Implement specific win and lose conditions
 
@@ -43,7 +43,7 @@ class Game:
         direction = 0
         # (image_path, x, y, width, height)
         player_character = PlayerCharacter('player.png', 375, 700, 50, 50)
-        Enemy_0 = NonPlayerCharacter('enemy.png', 20, 400, 50, 50)
+        enemy_0 = NonPlayerCharacter('enemy.png', 20, 400, 50, 50)
         treasure = GameObject('treasure.png', 375, 50, 50, 50)
         
         # Main game loop, used to update all gameplay such as movement, checks, and graphics
@@ -64,7 +64,7 @@ class Game:
                     # Move down if down key pressed
                     elif event.key == pygame.K_DOWN:
                         direction = -1
-                # Dtect when key is released
+                # Detect when key is released
                 elif event.type == pygame.KEYUP:
                     # Stop movement when key no longer pressed
                     if event.key == pygame.K_UP or event.key == pygame.K_DOWN:
@@ -82,10 +82,10 @@ class Game:
             player_character.draw(self.game_screen)
 
             # Move and draw enemy character
-            Enemy_0.move(self.width)
-            Enemy_0.draw(self.game_screen)
+            enemy_0.move(self.width)
+            enemy_0.draw(self.game_screen)
 
-            if player_character.detect_collision(Enemy_0):
+            if player_character.detect_collision(enemy_0):
                 is_game_over = True
                 did_win = True
                 text = font.render('You Lose!', True, BLACK_COLOR)
